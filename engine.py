@@ -42,8 +42,6 @@ def getPointGridAttribute(n,x,y):
                 gridLocY -= left
                 blkChoiceY = 2
 
-            
-
             pointAttribute_p = \
                 0 if blkChoiceX == 1 and blkChoiceY == 1 and gridLocX == gridSizeX - 3 and gridLocY == gridSizeY - 1 else \
                 1 if blkChoiceX == 1 and blkChoiceY == 1 and gridLocX == gridSizeX - 1 and gridLocY == gridSizeY - 2 else \
@@ -112,15 +110,20 @@ def getNextPointSerialize(n,x,y, last_x, last_y):
     next_x, next_y = getNextPoint(n,x,y, last_x, last_y)
     return pointSerialize(n,next_x, next_y)
 
+def getMoves(n):
+    # Start at (0,2)
+    pos_x = 2
+    pos_y = 0
+    last_pos_x = 0
+    last_pos_y = 1
 
-    
+    result = []
+    for _ in range(n*n):
+        next_x, next_y = getNextPoint(n,pos_x,pos_y,last_pos_x, last_pos_y)
+        last_pos_x, last_pos_y = pos_x, pos_y
+        pos_x, pos_y = next_x, next_y
+        result.append((pos_x, pos_y))
+    return result
 
 
-
-            
-
-
-
-        
-        
 
