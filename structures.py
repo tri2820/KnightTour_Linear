@@ -1,4 +1,5 @@
-
+# Dictionary to store closed, structured tours
+# of board size 6*6, 6*8, 8*, 8*10, 10*10, 10*12
 structures = {}
 
 structures['6x6'] = [   
